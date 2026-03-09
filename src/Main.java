@@ -3,7 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.*;
 public class Main{
-    public static void main(String[]args){
+    public static void main(String[]args) throws Exception{
         Scanner sc=new Scanner(System.in);
         Connection con= DBConnection.getConnection();
      /*   if(con != null){
