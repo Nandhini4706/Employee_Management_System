@@ -46,7 +46,8 @@ public class Main{
                     ps.setString(4, dept);
                     ps.setString(5, des);
                     ps.setString(6, repo);
-
+                    int row=ps.executeUpdate();
+                    System.out.println("Employee Added Successfully");
                     break;
                 case 2:
 
