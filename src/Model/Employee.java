@@ -3,12 +3,12 @@ package Model;
 public class Employee {
     private int id;
     private String name;
-    private String age;
+    private int age;
     private String department;
     private String designation;
     private String reportingTo;
 
-    public Employee(int id, String name, String age, String department, String designation, String reportingTo) {
+    public Employee(int id, String name, int age, String department, String designation, String reportingTo) {
         this.id = id;
         this.name=name;
         this.age=age;
@@ -25,7 +25,7 @@ public class Employee {
         return name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 

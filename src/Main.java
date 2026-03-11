@@ -1,11 +1,15 @@
+import Model.Employee;
+import Service.EmployeeService;
 import db.DBConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.*;
 public class Main{
     public static void main(String[]args) throws Exception{
         Scanner sc=new Scanner(System.in);
         Connection con= DBConnection.getConnection();
+        EmployeeService service=new EmployeeService(con);
      /*   if(con != null){
             System.out.println("Connected Successfully");
         }else{
@@ -13,6 +17,7 @@ public class Main{
         }
 
       */
+
         while(true) {
             System.out.println("-----------------------------------Menu------------------------------------------");
             System.out.println("1.Add Employee");
@@ -23,8 +28,7 @@ public class Main{
             int n=sc.nextInt();
             switch(n) {
                 case 1:
-                    String query = "Insert into employee(id,name,age,department,designation,reporting_to)" +
-                            "values(?,?,?,?,?,?)";
+
                     System.out.println("1.enter id");
                     int id = sc.nextInt();
                     sc.nextLine();
@@ -39,18 +43,20 @@ public class Main{
                     String des = sc.nextLine();
                     System.out.println("6.reporting to: ");
                     String repo = sc.nextLine();
-                    PreparedStatement ps = con.prepareStatement(query);
-                    ps.setInt(1, id);
-                    ps.setString(2, name);
-                    ps.setInt(3, age);
-                    ps.setString(4, dept);
-                    ps.setString(5, des);
-                    ps.setString(6, repo);
-                    int row=ps.executeUpdate();
-                    System.out.println("Employee Added Successfully");
+                    Employee emp=new Employee(id,name,age,dept,des,repo);
+                    service.addEmployee(emp);
                     break;
                 case 2:
-
+                    PreparedStatement ps1=con.prepareStatement("SELECT * FROM employee");
+                    ResultSet rs=ps1.executeQuery();
+                    while(rs.next()) {
+                       int id1= rs.getInt("id");
+                        String name1= rs.getString("name");
+                       int age1=rs.getInt("age");
+                       String dept1=rs.getString("department");
+                        String desi=rs.getString("designation");
+                        String repo1=rs.getString("reporting_to");
+                    }
             }
         }
     }
