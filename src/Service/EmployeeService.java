@@ -10,7 +10,7 @@ public class EmployeeService {
     public EmployeeService(Connection con) {
         this.con = con;
     }
-    public void addEmployee(Employee emp)throws Exception {
+    public void addEmployee(Employee emp)throws Exception  {
         String query = "Insert into employee(id,name,age,department,designation,reporting_to)" +
                 "values(?,?,?,?,?,?)";
 
