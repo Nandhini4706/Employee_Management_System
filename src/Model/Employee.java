@@ -38,13 +38,5 @@ public class Employee {
     public String getReportingTo(){
         return reportingTo;
     }
-    public void display(){
-        System.out.println("------------------------------------------------------");
-        System.out.println("Name" +getName());
-        System.out.println("Age" +getAge());
-        System.out.println("Department " +getDepartment());
-        System.out.println("Designation " +getDesignation());
-        System.out.println("Reporting To " +getReportingTo());
-        System.out.println("-------------------------------------------------------");
-    }
+
 }

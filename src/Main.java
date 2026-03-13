@@ -1,6 +1,8 @@
 import Model.Employee;
 import Service.EmployeeService;
 import db.DBConnection;
+
+import java.security.Provider;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,15 +49,15 @@ public class Main{
                     service.addEmployee(emp);
                     break;
                 case 2:
-                    PreparedStatement ps1=con.prepareStatement("SELECT * FROM employee");
-                    ResultSet rs=ps1.executeQuery();
-                    while(rs.next()) {
-                       int id1= rs.getInt("id");
-                        String name1= rs.getString("name");
-                       int age1=rs.getInt("age");
-                       String dept1=rs.getString("department");
-                        String desi=rs.getString("designation");
-                        String repo1=rs.getString("reporting_to");
+                    service.viewEmployee();
+                    break;
+                case 3:
+                    System.out.println("To confirm your choice enter");
+                    System.out.println("Y/N");
+                    String s=sc.next();
+                    if(s.equalsIgnoreCase("Y")){
+                       System.out.println("Thank You!!!");
+                        return;
                     }
             }
         }
