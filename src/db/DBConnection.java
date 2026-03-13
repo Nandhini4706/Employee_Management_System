@@ -10,7 +10,7 @@ public class DBConnection {
             String username = "root";
             String password = "Nandhu07";
             con = DriverManager.getConnection(url,username,password);
-            System.out.println("Database Connected");
+          // System.out.println("Database Connected");
         } catch (Exception e) {
           e.printStackTrace();
         }
